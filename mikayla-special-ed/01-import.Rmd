@@ -1,0 +1,106 @@
+---
+title: "TEA Special Education"
+output: html_notebook
+---
+```{r}
+library(tidyverse)
+library(janitor)
+```
+
+```{r}
+# cstud15 download
+download.file("https://github.com/utdata/rwd-mastery-assignments/blob/master/ed-special-ed/data/CSTUD15.csv?raw=true", "data-raw/CSTUD15.csv")
+# cstud20 download
+download.file("https://github.com/utdata/rwd-mastery-assignments/blob/master/ed-special-ed/data/CSTUD20.csv?raw=true", "data-raw/CSTUD20.csv")
+# directory download
+download.file("https://github.com/utdata/rwd-mastery-assignments/blob/master/ed-special-ed/data/Directory.csv?raw=true", "data-raw/Directory.csv")
+```
+## Import Data
+We are importing the school ratings data
+```{r}
+cstud15 <- read_csv("data-raw/cstud15.csv") %>% 
+  clean_names()
+```
+```{r}
+# peek at the data
+cstud15 %>% glimpse()
+```
+```{r}
+cstud20 <- read_csv("data-raw/cstud20.csv") %>% 
+  clean_names()
+```
+```{r}
+# peek at the data
+cstud20 %>% glimpse()
+```
+```{r}
+directory <- read_csv("data-raw/Directory.csv") %>% 
+  clean_names()
+```
+```{r}
+# peek at the data
+directory %>% glimpse()
+```
+```{r}
+directory_cols <- directory %>% 
+  select(
+    school_number,
+    school_name,
+    district_name,
+    instruction_type,
+    charter_type,
+    grade_range
+  ) %>% 
+  mutate(
+    campus = school_number %>% str_replace("'","")
+  ) %>% 
+  select(-school_number)
+  
+directory_cols %>% glimpse()
+```
+Preparing the student enrollment data
+```{r}
+# set up 2015
+cstud15_cols <- cstud15 %>% 
+  select(
+    campus,
+    cpetspec,
+    cpetspep
+  ) %>% 
+  rename(
+    sped_c_15 = cpetspec,
+    sped_p_15 = cpetspep
+  )
+
+# set up 2020
+cstud20_cols <- cstud20 %>% 
+  select(
+    campus,
+    cpetspec,
+    cpetspep
+  ) %>% 
+  rename(
+    sped_c_20 = cpetspec,
+    sped_p_20 = cpetspep
+  )
+
+# peek at both
+cstud15_cols %>% glimpse()
+```
+we need the schools that were open in both 2015 and 2020, but some schools existed in only one year or the other, so we’ll drop those. When we join our files, we’ll use an inner_join() to keep only schools with matching records from both 2015 and 2020. This will drop schools that opened after 2015 or closed before 2020
+```{r}
+sped <- directory_cols %>% 
+  inner_join(cstud15_cols)
+
+## Joining, by = "campus"
+sped <- directory_cols %>% 
+  inner_join(cstud15_cols) %>% 
+  inner_join(cstud20_cols)
+sped %>% glimpse()
+```
+## Exports
+exporting files to .rds
+```{r}
+sped %>%
+  write_rds("data-processed/01_sped.rds")
+```

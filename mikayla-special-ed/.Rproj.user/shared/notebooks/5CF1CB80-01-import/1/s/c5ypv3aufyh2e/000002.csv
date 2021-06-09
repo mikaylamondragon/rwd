@@ -1,0 +1,47 @@
+"0","# peek at the data"
+"0","directory %>% glimpse()"
+"1","Rows: 9,572"
+"1",""
+"1","
+"
+"1","Columns: 34"
+"1",""
+"1","
+"
+"1","$ county_number                      [3m[38;5;246m<chr>[39m[23m ""'001"", ""'001"", ""'001"", ""'001"", ""'001"", ""'001"", ""'001""…
+$ county_name                        [3m[38;5;246m<chr>[39m[23m ""ANDERSON COUNTY"", ""ANDERSON COUNTY"", ""ANDERSON COUNTY…
+$ region_number                      [3m[38;5;246m<chr>[39m[23m ""'07"", ""'07"", ""'07"", ""'07"", ""'07"", ""'07"", ""'07"", ""'07""…
+$ district_number                    [3m[38;5;246m<chr>[39m[23m ""'001902"", ""'001902"", ""'001902"", ""'001903"", ""'001903"",…
+$ district_name                      [3m[38;5;246m<chr>[39m[23m ""CAYUGA ISD"", ""CAYUGA ISD"", ""CAYUGA ISD"", ""ELKHART ISD…
+$ district_type                      [3m[38;5;246m<chr>[39m[23m ""INDEPENDENT"", ""INDEPENDENT"", ""INDEPENDENT"", ""INDEPEND…
+$ district_street_address            [3m[38;5;246m<chr>[39m[23m ""P O BOX 427"", ""P O BOX 427"", ""P O BOX 427"", ""301 E PA…
+$ district_city                      [3m[38;5;246m<chr>[39m[23m ""CAYUGA"", ""CAYUGA"", ""CAYUGA"", ""ELKHART"", ""ELKHART"", ""E…
+$ district_state                     [3m[38;5;246m<chr>[39m[23m ""TX"", ""TX"", ""TX"", ""TX"", ""TX"", ""TX"", ""TX"", ""TX"", ""TX"", …
+$ district_zip                       [3m[38;5;246m<chr>[39m[23m ""75832-0427"", ""75832-0427"", ""75832-0427"", ""75839-9701""…
+$ district_phone                     [3m[38;5;246m<chr>[39m[23m ""(903) 928-2102"", ""(903) 928-2102"", ""(903) 928-2102"", …
+$ district_fax                       [3m[38;5;246m<chr>[39m[23m ""(903) 928-2646"", ""(903) 928-2646"", ""(903) 928-2646"", …
+$ district_email_address             [3m[38;5;246m<chr>[39m[23m ""admin1@cayugaisd.com"", ""admin1@cayugaisd.com"", ""admin…
+$ district_web_page_address          [3m[38;5;246m<chr>[39m[23m ""www.cayugaisd.com"", ""www.cayugaisd.com"", ""www.cayugai…
+$ district_superintendent            [3m[38;5;246m<chr>[39m[23m ""DR RICK WEBB"", ""DR RICK WEBB"", ""DR RICK WEBB"", ""DR LA…
+$ district_enrollment_as_of_oct_2019 [3m[38;5;246m<dbl>[39m[23m 557, 557, 557, 1247, 1247, 1247, 1247, 1247, 786, 786,…
+$ school_number                      [3m[38;5;246m<chr>[39m[23m ""'001902001"", ""'001902041"", ""'001902103"", ""'001903001""…
+$ school_name                        [3m[38;5;246m<chr>[39m[23m ""CAYUGA H S"", ""CAYUGA MIDDLE"", ""CAYUGA EL"", ""ELKHART H…
+$ instruction_type                   [3m[38;5;246m<chr>[39m[23m ""REGULAR INSTRUCTIONAL"", ""REGULAR INSTRUCTIONAL"", ""REG…
+$ charter_type                       [3m[38;5;246m<chr>[39m[23m NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+$ school_street_address              [3m[38;5;246m<chr>[39m[23m ""P O BOX 427"", ""P O BOX 427"", ""P O BOX 427"", ""301 E PA…
+$ school_city                        [3m[38;5;246m<chr>[39m[23m ""CAYUGA"", ""CAYUGA"", ""CAYUGA"", ""ELKHART"", ""ELKHART"", ""E…
+$ school_state                       [3m[38;5;246m<chr>[39m[23m ""TX"", ""TX"", ""TX"", ""TX"", ""TX"", ""TX"", ""TX"", ""TX"", ""TX"", …
+$ school_zip                         [3m[38;5;246m<chr>[39m[23m ""75832-0427"", ""75832-0427"", ""75832-0427"", ""75839-9701""…
+$ school_phone                       [3m[38;5;246m<chr>[39m[23m ""(903) 928-2294 ext:012"", ""(903) 928-2699 ext:4001"", ""…
+$ school_fax                         [3m[38;5;246m<chr>[39m[23m ""(903) 928-2239"", ""(903) 928-2646"", ""(903) 928-2387"", …
+$ school_email_address               [3m[38;5;246m<chr>[39m[23m ""admin1@cayugaisd.com"", ""admin1@cayugaisd.com"", ""admin…
+$ school_web_page_address            [3m[38;5;246m<chr>[39m[23m ""www.cayugaisd.com"", ""www.cayugaisd.com"", ""www.cayugai…
+$ school_principal                   [3m[38;5;246m<chr>[39m[23m ""DR JOE E SATTERWHITE III"", ""MRS SHERRI MCINNIS"", ""MRS…
+$ grade_range                        [3m[38;5;246m<chr>[39m[23m ""'09-12"", ""'06-08"", ""'EE-05"", ""'09-12"", ""'KG-12"", ""'06…
+$ school_enrollment_as_of_oct_2019   [3m[38;5;246m<dbl>[39m[23m 172, 125, 260, 378, 0, 258, 334, 277, 228, 176, 382, 1…
+$ school_status                      [3m[38;5;246m<chr>[39m[23m ""Active"", ""Active"", ""Active"", ""Active"", ""Active"", ""Act…
+$ school_status_date                 [3m[38;5;246m<chr>[39m[23m NA, ""03/11/1996"", NA, NA, ""06/28/2002"", ""01/01/1996"", …
+$ update_date                        [3m[38;5;246m<chr>[39m[23m ""2/25/2021 5:35:04 AM"", ""2/25/2021 5:35:04 AM"", ""2/25/…"
+"1",""
+"1","
+"

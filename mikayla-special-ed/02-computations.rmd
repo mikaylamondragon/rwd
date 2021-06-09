@@ -1,0 +1,125 @@
+---
+title: "Special education computations"
+output: html_notebook
+---
+
+To explore an analyze our school ratings data. Mention that you have to run the other notebook first in case your someone else (or your future self) comes here first.
+
+## Goals
+- Which campus gained the most (count difference) special education students from 2015 to 2020?
+- Which campus has the highest share (percent) of special education students in 2020?
+- Which campus had the greatest change in share of in special education students between 2015 and 2020.
+- How many AISD schools would be above the special education "audit threshold" of 8.5% in 2020 if it were still in effect? How does those numbers compare to 2015?
+
+We will filter our list to focus on "Regular Instructional" schools to exclude alternative, disciplinary or schools part of the justice system.
+
+##Import
+```{r setup}
+library(tidyverse)
+library(janitor)
+```
+##Loading the Data
+```{r import}
+sped <- read_rds("data-processed/01_sped.rds")
+
+sped %>% glimpse()
+```
+##Exploring instruction_type
+count the rows based on values.
+```{r explore-type}
+sped %>% 
+  count(instruction_type)
+```
+## Filter fun
+filtering for regular schools
+rewrote the first filter to indent it differently so it was more clear that we have two logical tests here. The second test has a nested function, testing the charter_type field to see if it is blank, or is.na(), which is a special case. We could have written this line as is.na(charter_type).
+Add a select function and remove the charter_type and instruction_type columns.
+Assign the result to a new data frame called sped_reg.
+Print the data frame to the screen so you can poke around
+```{r}
+sped_reg <- sped %>% 
+  filter(
+    instruction_type == "REGULAR INSTRUCTIONAL",
+    charter_type %>% is.na()
+  ) %>% 
+  select(-charter_type, -instruction_type)
+
+sped_reg
+```
+```{r}
+sped_calcs <- sped_reg %>%
+  mutate(
+    #simple difference
+    sped_c_diff = sped_c_20 - sped_c_15
+  )
+sped_calcs %>% glimpse()
+```
+```{r}
+sped_calcs %>% 
+  select(school_name, sped_c_15, sped_c_20, sped_c_diff) %>% 
+  head()
+```
+```{r}
+sped_calcs <- sped_reg %>% 
+  mutate(
+    # simple diff
+    sped_c_diff = sped_c_20 - sped_c_15,
+    # percent change
+    spec_c_prccng = ((sped_c_20 - sped_c_15) / sped_c_15 * 100) %>% round_half_up(1),
+    # simple diff of percent
+  )
+
+sped_calcs %>% glimpse()
+```
+```{r}
+sped_calcs <- sped_reg %>% 
+  mutate(
+    # simple diff
+    sped_c_diff = sped_c_20 - sped_c_15,
+    # percent change
+    sped_c_prccng = ((sped_c_20 - sped_c_15) / sped_c_15 * 100) %>% round_half_up(1),
+    # simple diff of percent
+    sped_p_ppd = sped_p_20 - sped_p_15
+  )
+
+sped_calcs %>% glimpse()
+```
+```{r}
+sped_calcs <- sped_reg %>% 
+  mutate(
+    # simple diff
+    sped_c_diff = sped_c_20 - sped_c_15,
+    # percent change
+    sped_c_prccng = ((sped_c_20 - sped_c_15) / sped_c_15 * 100) %>% round_half_up(1),
+    # simple diff of percent
+    sped_p_ppd = sped_p_20 - sped_p_15,
+    # meets threshold 8.5% 2015
+    sped15_thsh = case_when(
+      sped_p_15 >= 8.5 ~ "Y",
+      TRUE ~ "N"
+    ),
+    # meets threhhold 8.5% 2020
+    sped20_thsh = case_when(
+      sped_p_20 >= 8.5 ~ "Y",
+      TRUE ~ "N"
+    )
+  )
+
+sped_calcs %>% glimpse
+```
+```{r}
+sped_calcs %>% 
+  select(
+    school_name,
+    sped_p_15,
+    sped15_thsh,
+    sped_p_20
+    , sped20_thsh
+  ) %>% 
+  head(20)
+```
+```{r}
+sped_calcs %>% 
+  write_rds("data-processed/02_sped_calcs.rds")
+```
+

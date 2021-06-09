@@ -1,0 +1,17 @@
+"0","```r
+read_csv(\"data-raw/CSTUD15.csv\")
+```"
+"1","
+── Column specification ──────────────────────────────────────────────────────────
+cols(
+  CAMPUS = col_character(),
+  CPETBILC = col_double(),
+  CPETBILP = col_double(),
+  CPETGIFC = col_double(),
+  CPETGIFP = col_double(),
+  CPETSPEC = col_double(),
+  CPETSPEP = col_double(),
+  CPETVOCC = col_double(),
+  CPETVOCP = col_double()
+)
+"

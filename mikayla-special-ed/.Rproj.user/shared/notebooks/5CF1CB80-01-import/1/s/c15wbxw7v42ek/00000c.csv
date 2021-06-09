@@ -1,0 +1,32 @@
+"0","directory_cols <- directory %>% "
+"0","  select("
+"0","    school_number,"
+"0","    school_name,"
+"0","    district_name,"
+"0","    instruction_type,"
+"0","    charter_type,"
+"0","    grade_range"
+"0","  ) %>% "
+"0","  mutate("
+"0","    campus = school_number %>% str_replace(""'"","""")"
+"0","  ) %>% "
+"0","  select(-school_number)"
+"0","  "
+"0","directory_cols %>% glimpse()"
+"1","Rows: 9,572"
+"1",""
+"1","
+"
+"1","Columns: 6"
+"1",""
+"1","
+"
+"1","$ school_name      [3m[38;5;246m<chr>[39m[23m ""CAYUGA H S"", ""CAYUGA MIDDLE"", ""CAYUGA EL"", ""ELKHART H S"", ""ELKHART DAEP…
+$ district_name    [3m[38;5;246m<chr>[39m[23m ""CAYUGA ISD"", ""CAYUGA ISD"", ""CAYUGA ISD"", ""ELKHART ISD"", ""ELKHART ISD"", …
+$ instruction_type [3m[38;5;246m<chr>[39m[23m ""REGULAR INSTRUCTIONAL"", ""REGULAR INSTRUCTIONAL"", ""REGULAR INSTRUCTIONAL…
+$ charter_type     [3m[38;5;246m<chr>[39m[23m NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+$ grade_range      [3m[38;5;246m<chr>[39m[23m ""'09-12"", ""'06-08"", ""'EE-05"", ""'09-12"", ""'KG-12"", ""'06-08"", ""'EE-02"", ""'…
+$ campus           [3m[38;5;246m<chr>[39m[23m ""001902001"", ""001902041"", ""001902103"", ""001903001"", ""001903002"", ""001903…"
+"1",""
+"1","
+"

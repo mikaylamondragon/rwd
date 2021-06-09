@@ -1,0 +1,5 @@
+"0","sped %>% "
+"0","  filter("
+"0","    instruction_type == ""REGULAR INSTRUCTIONAL"","
+"0","    charter_type %>% is.na()"
+"0","  )"

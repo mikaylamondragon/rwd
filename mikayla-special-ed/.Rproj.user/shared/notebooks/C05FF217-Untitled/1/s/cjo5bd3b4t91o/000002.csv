@@ -1,0 +1,27 @@
+"0","```r
+# cstud15 download
+download.file(\"https://github.com/utdata/rwd-mastery-assignments/blob/master/ed-special-ed/data/CSTUD15.csv?raw=true\", \"data-raw/CSTUD15.csv\")
+```"
+"1","trying URL 'https://github.com/utdata/rwd-mastery-assignments/blob/master/ed-special-ed/data/CSTUD15.csv?raw=true'
+Content type 'text/plain; charset=utf-8' length 331596 bytes (323 KB)
+==================================================
+downloaded 323 KB
+"
+"0","```r
+# cstud20 download
+download.file(\"https://github.com/utdata/rwd-mastery-assignments/blob/master/ed-special-ed/data/CSTUD20.csv?raw=true\", \"data-raw/CSTUD20.csv\")
+```"
+"1","trying URL 'https://github.com/utdata/rwd-mastery-assignments/blob/master/ed-special-ed/data/CSTUD20.csv?raw=true'
+Content type 'text/plain; charset=utf-8' length 669403 bytes (653 KB)
+==================================================
+downloaded 653 KB
+"
+"0","```r
+# directory download
+download.file(\"https://github.com/utdata/rwd-mastery-assignments/blob/master/ed-special-ed/data/Directory.csv?raw=true\", \"data-raw/Directory.csv\")
+```"
+"1","trying URL 'https://github.com/utdata/rwd-mastery-assignments/blob/master/ed-special-ed/data/Directory.csv?raw=true'
+Content type 'text/plain; charset=utf-8' length 4003898 bytes (3.8 MB)
+==================================================
+downloaded 3.8 MB
+"

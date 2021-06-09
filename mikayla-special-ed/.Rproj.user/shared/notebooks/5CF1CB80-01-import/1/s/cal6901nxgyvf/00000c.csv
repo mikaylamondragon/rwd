@@ -1,0 +1,17 @@
+"0","cstud15 <- read_csv(""data-raw/cstud15.csv"") %>% "
+"0","  clean_names()"
+"2","
+[36m──[39m [1m[1mColumn specification[1m[22m [36m───────────────────────────────────────────────────────────────────────────[39m
+cols(
+  CAMPUS = [31mcol_character()[39m,
+  CPETBILC = [32mcol_double()[39m,
+  CPETBILP = [32mcol_double()[39m,
+  CPETGIFC = [32mcol_double()[39m,
+  CPETGIFP = [32mcol_double()[39m,
+  CPETSPEC = [32mcol_double()[39m,
+  CPETSPEP = [32mcol_double()[39m,
+  CPETVOCC = [32mcol_double()[39m,
+  CPETVOCP = [32mcol_double()[39m
+)
+
+"
